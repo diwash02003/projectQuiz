@@ -1,22 +1,8 @@
-const users = [
-  { username: "diwash", password: "pokhrel", role: "admin" },
-  { username: "user1", password: "password1", role: "user" },
-  { username: "user2", password: "password2", role: "user" },
-  { username: "user3", password: "password3", role: "user" },
-  { username: "user4", password: "password4", role: "user" },
-  { username: "user5", password: "password5", role: "user" },
-  { username: "user6", password: "password6", role: "user" },
-  { username: "user7", password: "password7", role: "user" },
-  { username: "user8", password: "password8", role: "user" },
-  { username: "user9", password: "password9", role: "user" },
-  { username: "user10", password: "password10", role: "user" },
-];
-
 function loadpage(page) {
   fetch(`${page}.html`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Network responce was not ok");
+        throw new Error("Network response was not ok");
       }
       return response.text();
     })
@@ -28,12 +14,6 @@ function loadpage(page) {
         const username = urlParams.get("username");
         document.getElementById("usernameDisplay").textContent = username;
       }
-
-      if (page == "admin-dashboard") {
-      }
-      closeMenu();
-
-      //----------------------------------------------------/
 
       if (page === "logout_model") {
         const modal = document.getElementById("logout-modal");
@@ -50,19 +30,14 @@ function loadpage(page) {
           const urlParams = new URLSearchParams(window.location.search);
           const username = urlParams.get("username");
 
-          const role = findUserByName(username);
-
-          if (role === "admin") {
-            loadpage("admin-dashboard-main");
-          } else if (role === "user") {
+          if (username === user.username) {
             loadpage("user-dashboard-main");
           } else {
             alert("not found");
           }
         });
       }
-
-      //----------------------------------------------------/
+      closeMenu();
     })
     .catch((error) => {
       console.error("Error fetching page", error);
@@ -82,7 +57,7 @@ function submitForm() {
   document.getElementById("email").value = "";
   document.getElementById("message").value = "";
 
-  // Load the home page content after submiting message
+  // Load the home page content after submitting message
   loadpage("home");
 }
 
@@ -110,68 +85,11 @@ document.querySelectorAll("#nav-list a").forEach((link) => {
   });
 });
 
-const quizQuestions = [
-  {
-    question: "Who is the President of Nepal?",
-    options: {
-      a: "Civilization Bhattarai",
-      b: "Madhumalla Poudal",
-      c: "Monu Kumar Nayabania",
-      d: "Omega Siddique",
-    },
-    correctAnswer: "=",
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: {
-      a: "Venus",
-      b: "Jupiter",
-      c: "Mars",
-      d: "Saturn",
-    },
-    correctAnswer: "c",
-  },
-];
-
-// user authentication
-
-function authenticateUser() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-
-  console.log("username: " + username);
-  console.log("password: " + password);
-
-  const role = authenticate(username, password);
-
-  if (role) {
-    if (role === "admin") {
-      window.location.href =
-        "admin-dashboard-base.html?username=" + encodeURIComponent(username);
-    } else if (role === "user") {
-      window.location.href =
-        "user-dashboard-base.html?username=" + encodeURIComponent(username);
-    }
-  } else {
-    alert("Invalid username or password");
-  }
-
-  return false;
-}
-
-function authenticate(username, password) {
-  const user = users.find(
-    (user) => user.username === username && user.password === password
-  );
-  return user ? user.role : null;
-}
-
 function findUserByName(username) {
-  const user = users.find((user) => user.username === username);
-  return user ? user.role : null;
+  return username === user.username ? user.username : null;
 }
 
-//for handeling nav bar
+// For handling nav bar
 document.getElementById("mobile-menu").addEventListener("click", function () {
   var menu = document.getElementById("nav-list");
   var content = document.getElementById("content");
