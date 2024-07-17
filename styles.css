@@ -34,6 +34,8 @@ body {
 }
 
 .menu-toggle {
+  margin-right: 10px;
+
   display: none;
   flex-direction: column;
   cursor: pointer;
