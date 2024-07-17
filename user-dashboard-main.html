@@ -10,24 +10,30 @@
       <div class="main-container">
         <div class="side sidebar">
           <h2>Welcome, <span id="usernameDisplay"></span>!</h2>
-          <div class="best-performance">
-            <h3>Best Score</h3>
-            <!-- Add content for best performance here -->
-          </div>
           <div class="quiz-section">
             <h3>Quiz Section</h3>
             <ul>
               <li>
-                <a href="#" onclick="loadpage('science_and_tech_quiz')"
+                <a
+                  href="#"
+                  onclick="loadpage('question','science_and_tech_quiz')"
                   >Science and Tech</a
                 >
               </li>
               <li>
-                <a href="#" onclick="loadpage('history-quiz')">History Quiz</a>
+                <a href="#" onclick="loadpage('question','history_quiz')"
+                  >History Quiz</a
+                >
               </li>
-              <li><a href="#" onclick="loadpage('mix_quiz')">Mix Quiz</a></li>
               <li>
-                <a href="#" onclick="loadpage('funny_quiz')">Funny Quiz</a>
+                <a href="#" onclick="loadpage('question','mix_quiz')"
+                  >Mix Quiz</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick="loadpage('question','sports_quiz')"
+                  >Sports</a
+                >
               </li>
             </ul>
           </div>
@@ -43,7 +49,7 @@
               <a
                 href="#"
                 class="button"
-                onclick="loadpage('science_and_tech_quiz')"
+                onclick="loadpage('question','science_and_tech_quiz')"
                 >Take Quiz</a
               >
             </div>
@@ -54,7 +60,10 @@
                 Test your knowledge, Explore historical events and figures with
                 our history quiz.
               </p>
-              <a href="#" class="button" onclick="loadpage('history-quiz')"
+              <a
+                href="#"
+                class="button"
+                onclick="loadpage('question','history_quiz')"
                 >Take Quiz</a
               >
             </div>
@@ -65,17 +74,23 @@
                 Challenge yourself with a mix of questions from various topics
                 in this exciting quiz.
               </p>
-              <a href="#" class="button" onclick="loadpage('mix_quiz')"
+              <a
+                href="#"
+                class="button"
+                onclick="loadpage('question','mix_quiz')"
                 >Take Quiz</a
               >
             </div>
             <div class="quiz-preview">
-              <h3>Funny</h3>
+              <h3>Sport</h3>
               <p>
-                This quiz is packed with silly questions and surprises. Perfect
-                for a fun break.
+                " Test Your Knowledge, and Score
+                Big in Our Exciting  sports Quiz Adventure! "
               </p>
-              <a href="#" class="button" onclick="loadpage('funny_quiz')"
+              <a
+                href="#"
+                class="button"
+                onclick="loadpage('question','sports_quiz')"
                 >Take Quiz</a
               >
             </div>

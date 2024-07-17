@@ -7,6 +7,7 @@ body {
 
 html,
 body {
+  background-color: #e2f0f7;
   overflow: hidden;
   height: 100%;
 }
@@ -490,4 +491,46 @@ textarea {
 
 .logout_css_section {
   text-align: center;
+}
+
+/* --------------------------------------------- */
+
+.quiz-container {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* width: 300px; */
+  height: auto;
+  background: linear-gradient(rgb(101, 178, 242), #e3f6b5);
+  border: 1px solid #090808;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+.h2 {
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #8e44ad;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+ul li label {
+  cursor: pointer;
+}
+
+.back-button-container {
+  position: absolute;
+  top: 90px;
+  left: 40px;
 }

@@ -1,4 +1,4 @@
-function loadpage(page) {
+function loadpage(page, quizType = null) {
   fetch(`${page}.html`)
     .then((response) => {
       if (!response.ok) {
@@ -34,6 +34,85 @@ function loadpage(page) {
             loadpage("user-dashboard-main");
           } else {
             alert("not found");
+          }
+        });
+      }
+      // if (page === "question") {
+      //   var count = 0;
+      //   loadQuiz();
+      //   const submitBtn = document.getElementById("submit");
+
+      //   submitBtn.addEventListener("click", () => {
+      //     const answer = getSelected();
+
+      //     if (answer) {
+      //       if (
+      //         answer ===
+      //         nepaliHistoryQuestions[currentQuestionIndex].correctAnswer
+      //       ) {
+      //         // alert("Correct answer!");
+      //         count++;
+      //       } else {
+      //         // alert(
+      //         //   "Wrong answer. The correct answer is " +
+      //         //     nepaliHistoryQuestions[
+      //         //       currentQuestionIndex
+      //         //     ].correctAnswer.toUpperCase()
+      //         // );
+      //       }
+
+      //       currentQuestionIndex++;
+      //       if (currentQuestionIndex < nepaliHistoryQuestions.length) {
+      //         loadQuiz();
+      //       } else {
+      //         alert("Quiz completed!" + " Correct: " + count);
+      //         // showAnswers();
+      //         // Optionally reset quiz
+      //         currentQuestionIndex = 0;
+      //         // loadQuiz();
+      //         loadpage("user-dashboard-main");
+      //       }
+      //     }
+      //   });
+      // }
+
+      if (page === "question") {
+        console.log(quizType);
+        var count = 0;
+        let questions;
+        if (quizType === "history_quiz") {
+          questions = history_quiz;
+        } else if (quizType === "science_and_tech_quiz") {
+          questions = science_and_tech_quiz;
+        } else if (quizType === "mix_quiz") {
+          questions = mix_quiz;
+        } else if (quizType === "sports_quiz") {
+          questions = sports_quiz;
+        }
+
+        selectedQuestions = shuffle(questions).slice(0, 10);
+        loadQuiz(selectedQuestions);
+
+        
+        // loadQuiz(questions);
+        const submitBtn = document.getElementById("submit");
+
+        submitBtn.addEventListener("click", () => {
+          const answer = getSelected();
+
+          if (answer) {
+            if (answer === questions[currentQuestionIndex].correctAnswer) {
+              count++;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+              loadQuiz(questions);
+            } else {
+              alert("Quiz completed! Correct: " + count);
+              currentQuestionIndex = 0;
+              loadpage("user-dashboard-main");
+            }
           }
         });
       }
