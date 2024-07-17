@@ -34,7 +34,7 @@ body {
 }
 
 .menu-toggle {
-  margin-right: 10px;
+  margin-right: 15px;
 
   display: none;
   flex-direction: column;
