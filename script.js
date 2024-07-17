@@ -96,3 +96,8 @@ document.getElementById("mobile-menu").addEventListener("click", function () {
   menu.classList.toggle("active");
   content.classList.toggle("hidden");
 });
+
+const user = {
+  username: "BSC-CSIT",
+  password: "password",
+};
