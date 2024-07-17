@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="logo.png" alt="Logo" />
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-list">
+          <li><a href="#" onclick="loadpage('user-dashboard-main')">Home</a></li>
+          <li><a href="#" onclick="loadpage('about')">About Us</a></li>
+          <li><a href="#" onclick="loadpage('contact')">Contact</a></li>
+          <li><a href="#" onclick="loadpage('reviews')">Review</a></li>
+          <li><a href="#" onclick="loadpage('logout_model')">Sign Out</a></li>
+          <li class="mobile-logo">
+            <img src="feature_logo.png" alt="Logo" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="content"></main>
+    <script src="script.js"></script>
+  </body>
+</html>

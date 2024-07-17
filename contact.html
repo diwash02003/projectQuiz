@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="contact">
+      <h2>Contact Us</h2>
+
+      <div class="contact-info">
+        <p>
+          If you have any questions or feedback, feel free to reach out to us:
+        </p>
+        <ul>
+          <li>Email: dpokhrel111@gmail.com</li>
+          <li>Phone: 9825990806</li>
+        </ul>
+      </div>
+      <form
+        id="contactForm"
+        class="contact-form"
+        onsubmit="submitForm(); return false;"
+      >
+        <h3>Send us a message</h3>
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+    </section>
+  </body>
+</html>

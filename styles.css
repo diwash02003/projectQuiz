@@ -1,0 +1,491 @@
+body {
+  color: #333333;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+@media (max-width: 1004px) {
+  html,
+  body {
+    overflow: auto;
+    height: 100%;
+  }
+}
+
+/* Navbar styling */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2284ed;
+  color: white;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: rgb(8, 7, 7);
+  margin: 4px;
+  transition: 0.3s;
+}
+
+#nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#nav-list li {
+  margin-right: 5px;
+}
+
+#nav-list a {
+  color: rgb(6, 6, 6);
+  font-weight: bolder;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#nav-list a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+.navbar .mobile-logo {
+  display: none;
+}
+
+@media (max-width: 510px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  #nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+
+  #nav-list.active {
+    display: flex;
+  }
+
+  #nav-list li {
+    margin: 0.5rem 0;
+  }
+
+  main.hidden {
+    display: none;
+  }
+
+  .navbar .active .mobile-logo {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .navbar .mobile-logo img {
+    height: 80px;
+    width: auto;
+    border-radius: 50%;
+    border: #efa00d solid 2px;
+    box-shadow: 0 10px 40px rgba(15, 15, 15, 0.3);
+    transition: height 0.3s ease;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar .mobile-logo img {
+    height: 60px;
+  }
+}
+/* ------------------------------------------------------------------------------------- */
+/* Common Styling for Sections */
+section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: larger;
+  line-height: 2;
+  color: #0d9de0;
+  margin-bottom: 20px;
+}
+
+blockquote {
+  color: #0d9de0;
+  font-size: larger;
+}
+
+cite {
+  font-size: larger;
+  font-style: italic;
+  color: #010509;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+/* contact page */
+.contact {
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contact-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.contact-form {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #2676d7;
+  color: #333;
+  font-size: 16px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.contact-form .footer {
+  margin-top: 15px;
+}
+
+.contact-form .footer a {
+  text-decoration: none;
+  color: #2676d7;
+  margin: 0 10px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.contact-form .footer a:hover {
+  color: #0c5ca8;
+}
+
+@media (max-width: 390px) {
+  .contact-form {
+    width: 80%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    border-bottom: 1px solid #2676d7;
+  }
+}
+/* ------------------------------------------------------------------------------------- */
+
+.button {
+  display: inline-block;
+  background-color: #2676d7;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #c28276;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.home-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home_image {
+  height: 180px;
+  width: auto;
+  border-radius: 50%;
+  border: #efa00d solid 2px;
+  box-shadow: 0 10px 40px rgba(15, 15, 15, 0.3);
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .home_image {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home_image {
+    height: 80px;
+  }
+}
+
+@media (max-width: 320px) {
+  .home_image {
+    height: 30px;
+  }
+}
+
+/* sdv----------------------------------- */
+
+/* Adjusted styles for main section */
+.main-section {
+  display: flex;
+  background-color: #f4f4f4;
+  border-radius: 0px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-left: 220px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f1e6d8;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 65px;
+  left: 0;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 200px;
+}
+
+.hero.featured-quizzes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.quiz-preview {
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.quiz-preview:hover {
+  transform: translateY(-10px);
+}
+
+.quiz-preview h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.quiz-preview p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .sidebar {
+    margin-top: 0px;
+    width: 100%;
+    padding: 4px;
+    position: static;
+    height: auto;
+    overflow-y: visible;
+    z-index: initial;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .hero.featured-quizzes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .quiz-preview {
+    border: none;
+    padding: 15px;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    gap: 5px;
+  }
+
+  .quiz-preview h3 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  .quiz-preview p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .quiz-preview .button {
+    padding: 8px 16px;
+    font-size: 1em;
+    border-radius: 15px;
+  }
+}
+
+/* Remove bullet points from ul lists */
+.sidebar ul,
+.quiz-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styles for list items in the quiz section */
+.quiz-section ul {
+  padding-left: 0;
+}
+
+.quiz-section li {
+  margin-bottom: 5px;
+}
+
+.quiz-section a {
+  display: block;
+  padding: 10px 0;
+  color: #333;
+  font-size: 1.1em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quiz-section a:hover {
+  color: #2676d7;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* log out prompt css */
+
+#confirm-logout:hover {
+  cursor: pointer;
+  background-color: #d72655;
+  color: white;
+}
+
+#cancel-logout:hover {
+  cursor: pointer;
+  background-color: #12ee12;
+  color: black;
+}
+
+.modal {
+  width: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+}
+
+.logout_css_section {
+  text-align: center;
+}
