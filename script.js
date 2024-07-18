@@ -37,44 +37,6 @@ function loadpage(page, quizType = null) {
           }
         });
       }
-      // if (page === "question") {
-      //   var count = 0;
-      //   loadQuiz();
-      //   const submitBtn = document.getElementById("submit");
-
-      //   submitBtn.addEventListener("click", () => {
-      //     const answer = getSelected();
-
-      //     if (answer) {
-      //       if (
-      //         answer ===
-      //         nepaliHistoryQuestions[currentQuestionIndex].correctAnswer
-      //       ) {
-      //         // alert("Correct answer!");
-      //         count++;
-      //       } else {
-      //         // alert(
-      //         //   "Wrong answer. The correct answer is " +
-      //         //     nepaliHistoryQuestions[
-      //         //       currentQuestionIndex
-      //         //     ].correctAnswer.toUpperCase()
-      //         // );
-      //       }
-
-      //       currentQuestionIndex++;
-      //       if (currentQuestionIndex < nepaliHistoryQuestions.length) {
-      //         loadQuiz();
-      //       } else {
-      //         alert("Quiz completed!" + " Correct: " + count);
-      //         // showAnswers();
-      //         // Optionally reset quiz
-      //         currentQuestionIndex = 0;
-      //         // loadQuiz();
-      //         loadpage("user-dashboard-main");
-      //       }
-      //     }
-      //   });
-      // }
 
       if (page === "question") {
         console.log(quizType);
@@ -93,7 +55,6 @@ function loadpage(page, quizType = null) {
         selectedQuestions = shuffle(questions).slice(0, 10);
         loadQuiz(selectedQuestions);
 
-        
         // loadQuiz(questions);
         const submitBtn = document.getElementById("submit");
 
@@ -106,12 +67,10 @@ function loadpage(page, quizType = null) {
             }
 
             currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
+            if (currentQuestionIndex < selectedQuestions.length) {
               loadQuiz(questions);
             } else {
-              alert("Quiz completed! Correct: " + count);
-              currentQuestionIndex = 0;
-              loadpage("user-dashboard-main");
+              show(count, selectedQuestions, questions);
             }
           }
         });
@@ -145,7 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const username = urlParams.get("username");
   if (username) {
-    loadpage("user-dashboard-main"); // Load the main content of the dashboard if the user is logged in
+    // Load the main content of the dashboard if the user is logged in
+    loadpage("user-dashboard-main");
   } else {
     loadpage("home");
   }
@@ -168,7 +128,7 @@ function findUserByName(username) {
   return username === user.username ? user.username : null;
 }
 
-// For handling nav bar
+// Handling nav bar
 document.getElementById("mobile-menu").addEventListener("click", function () {
   var menu = document.getElementById("nav-list");
   var content = document.getElementById("content");

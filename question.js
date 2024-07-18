@@ -1,103 +1,8 @@
-// const mix_quiz = [
-//   {
-//     question: "Who is the President of Nepal?",
-//     options: {
-//       a: "Civilization Bhattarai",
-//       b: "Madhumalla Poudal",
-//       c: "Monu Kumar Nayabania",
-//       d: "Omega Siddique",
-//     },
-//     correctAnswer: "a",
-//   },
-//   {
-//     question: "Which planet is known as the Red Planet?",
-//     options: {
-//       a: "Venus",
-//       b: "Jupiter",
-//       c: "Mars",
-//       d: "Saturn",
-//     },
-//     correctAnswer: "c",
-//   },
-//   {
-//     question: "Which language is used for styling web pages?",
-//     options: {
-//       a: "HTML",
-//       b: "JQuery",
-//       c: "CSS",
-//       d: "XML",
-//     },
-//     correctAnswer: "c",
-//   },
-//   {
-//     question: "What does HTML stand for?",
-//     options: {
-//       a: "Hyper Trainer Marking Language",
-//       b: "Hyper Text Marketing Language",
-//       c: "Hyper Text Markup Language",
-//       d: "Hyper Text Markup Leveler",
-//     },
-//     correctAnswer: "c",
-//   },
-// ];
-
-// const history_quiz = [
-//   {
-//     question: "Who was the first king of unified Nepal?",
-//     options: {
-//       a: "Prithvi Narayan Shah",
-//       b: "Tribhuvan Bir Bikram Shah",
-//       c: "Mahendra Bir Bikram Shah",
-//       d: "Gyanendra Bir Bikram Shah",
-//     },
-//     correctAnswer: "a",
-//   },
-//   {
-//     question: "In which year did the Kot Massacre take place?",
-//     options: {
-//       a: "1846",
-//       b: "1850",
-//       c: "1860",
-//       d: "1872",
-//     },
-//     correctAnswer: "a",
-//   },
-//   {
-//     question: "Who was the first Prime Minister of Nepal?",
-//     options: {
-//       a: "Bhimsen Thapa",
-//       b: "Jung Bahadur Rana",
-//       c: "Chandra Shumsher Jang Bahadur Rana",
-//       d: "Madhav Kumar Nepal",
-//     },
-//     correctAnswer: "a",
-//   },
-//   {
-//     question: "Which treaty ended the Anglo-Nepalese War?",
-//     options: {
-//       a: "Treaty of Sugauli",
-//       b: "Treaty of Sagauli",
-//       c: "Treaty of Kathmandu",
-//       d: "Treaty of Gorkha",
-//     },
-//     correctAnswer: "a",
-//   },
-//   {
-//     question: "Who is known as the 'Father of the Nation' in Nepal?",
-//     options: {
-//       a: "Bhimsen Thapa",
-//       b: "Jung Bahadur Rana",
-//       c: "Prithvi Narayan Shah",
-//       d: "King Tribhuvan",
-//     },
-//     correctAnswer: "c",
-//   },
-// ];
-
 let currentQuestionIndex = 0;
 
 function loadQuiz(questiontype) {
   deselectAnswers();
+  const quiz = document.getElementById("quiz");
   const questionEl = document.getElementById("question");
   const aText = document.getElementById("a_text");
   const bText = document.getElementById("b_text");
@@ -138,6 +43,51 @@ function shuffle(array) {
   }
   return array;
 }
+
+let globalSelectedQuestions = [];
+
+// Adjusted showAnswers function
+function showAnswers() {
+  let output = `<h2>All Questions and Correct Answers</h2><ul>`;
+  globalSelectedQuestions.forEach((item, index) => {
+    const correctAnswer = item.options[item.correctAnswer];
+    output += `
+      <li>
+        <strong>${index + 1}:</strong> ${item.question}<br>
+        <strong>Answer:</strong> ${correctAnswer}
+      </li>
+    `;
+  });
+  output += `</ul><button class="button" onclick="location.reload()">Reload</button>`;
+  quiz.innerHTML = output;
+}
+
+// Function to display the quiz completion screen
+function show(count, selectedQuestions, question) {
+  // Calculate the percentage of correct answers
+  const percentage = Math.round((count / selectedQuestions.length) * 100);
+
+  //Give message based on the score percentage
+  let message = "";
+  if (percentage === 100) {
+    message = `Congratulations! You got all ${selectedQuestions.length} questions correct!`;
+  } else if (percentage >= 80) {
+    message = `Well done! You answered ${count} out of ${selectedQuestions.length} questions correctly (${percentage}%).`;
+  } else {
+    message = `You answered ${count} out of ${selectedQuestions.length} questions correctly (${percentage}%). Keep practicing!`;
+  }
+
+  // Store selectedQuestions globally
+  globalSelectedQuestions = selectedQuestions;
+
+  quiz.innerHTML = `
+    <h2>Quiz Completed!</h2>
+    <p style="font-size: 18px; color: #666; margin-bottom: 20px;">${message}</p>
+    <button class="button" onclick="location.reload()">Reload</button>
+    <button id="show-answers" class="button" onclick="showAnswers()">View</button>
+  `;
+}
+
 // ----------------------------------------
 
 const mix_quiz = [

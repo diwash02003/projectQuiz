@@ -8,7 +8,6 @@ body {
 html,
 body {
   background-color: #e2f0f7;
-  overflow: hidden;
   height: 100%;
 }
 
@@ -338,6 +337,7 @@ textarea {
   position: fixed;
   top: 65px;
   left: 0;
+  /* height: auto; */
   height: calc(100vh - 65px);
   overflow-y: auto;
   z-index: 1;
@@ -495,20 +495,6 @@ textarea {
 
 /* --------------------------------------------- */
 
-.quiz-container {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  /* width: 300px; */
-  height: auto;
-  background: linear-gradient(rgb(101, 178, 242), #e3f6b5);
-  border: 1px solid #090808;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 20px;
-}
 .h2 {
   padding: 1rem;
   margin: 0;
@@ -529,8 +515,32 @@ ul li label {
   cursor: pointer;
 }
 
-.back-button-container {
-  position: absolute;
-  top: 90px;
-  left: 40px;
+#quiz {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  background: linear-gradient(rgb(101, 178, 242), #e3f6b5);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: bold;
+} */
+
+li {
+  margin-bottom: 15px;
 }
